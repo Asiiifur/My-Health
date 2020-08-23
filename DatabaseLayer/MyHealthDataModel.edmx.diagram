@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33b396810ffe41ebb245897454a3e565" Name="Diagram1">
+        <EntityTypeShape EntityType="MyHealthDbModel.AccountTypeTable" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MyHealthDbModel.DoctorAppointTable" Width="1.5" PointX="10.5" PointY="12.375" />
+        <EntityTypeShape EntityType="MyHealthDbModel.DoctorTable" Width="1.5" PointX="6" PointY="10.125" />
+        <EntityTypeShape EntityType="MyHealthDbModel.DoctorTimeSlotTable" Width="1.5" PointX="8.25" PointY="15.625" />
+        <EntityTypeShape EntityType="MyHealthDbModel.GenderTable" Width="1.5" PointX="3.75" PointY="3.625" />
+        <EntityTypeShape EntityType="MyHealthDbModel.LabAppointTable" Width="1.5" PointX="10.5" PointY="17.25" />
+        <EntityTypeShape EntityType="MyHealthDbModel.LabTable" Width="1.5" PointX="3" PointY="10.5" />
+        <EntityTypeShape EntityType="MyHealthDbModel.LabTestDetailsTable" Width="1.5" PointX="7.5" PointY="19.625" />
+        <EntityTypeShape EntityType="MyHealthDbModel.LabTestTable" Width="1.5" PointX="5.25" PointY="21.25" />
+        <EntityTypeShape EntityType="MyHealthDbModel.LabTimeSlotTable" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="MyHealthDbModel.PatientTable" Width="1.5" PointX="8.25" PointY="11.5" />
+        <EntityTypeShape EntityType="MyHealthDbModel.PatientTestDetailTable" Width="1.5" PointX="12.75" PointY="18.75" />
+        <EntityTypeShape EntityType="MyHealthDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MyHealthDbModel.UserTable" Width="1.5" PointX="3.75" PointY="16.25" />
+        <EntityTypeShape EntityType="MyHealthDbModel.UserTypeTable" Width="1.5" PointX="1.5" PointY="17.125" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorTable_AccountTypeTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabTable_AccountTypeTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorAppointTable_DoctorTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorAppointTable_DoctorTimeSlotTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorAppointTable_PatientTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorTable_GenderTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorTable_UserTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_DoctorTimeSlotTable_DoctorTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_PatientTable_GenderTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabAppointTable_LabTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabAppointTable_LabTestTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabAppointTable_LabTimeSlotTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabAppointTable_PatientTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_PatientTestDetailTable_LabAppointTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabTable_UserTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabTestDetailsTable_LabTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabTestTable_LabTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabTimeSlotTable_LabTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_LabTestDetailsTable_LabTestTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_PatientTestDetailTable_LabTestDetailsTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_PatientTable_UserTable" />
+        <AssociationConnector Association="MyHealthDbModel.FK_UserTable_UserTypeTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
