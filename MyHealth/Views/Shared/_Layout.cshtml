@@ -22,102 +22,115 @@
     <link rel="stylesheet" href="~/Content/DashboardTemplate/css/main.css">
 
     <link href="~/Content/Template/css/bootstrap.css" rel="stylesheet" />
-
+    <meta name="author" content="Nile-Theme">
+    <meta name="robots" content="index follow">
+    <meta name="googlebot" content="index follow">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="directory, doctor, doctor directory, Health directory, listing, map, medical, medical directory, professional directory, reservation, reviews">
+    <meta name="description" content="Health Care & Medical Services Directory">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
 
 
 </head>
 <body id="welcome">
-        <div class="left-sidebar">
-            <div class="logo">
-                <a href="#welcome">
-                    <img src="~/Content/DashboardTemplate/img/logo.png" alt="">
-                </a>
-            </div>
-            <div id="navbar">
-                <ul id="nav navbar-nav">
-                    <li class="current"><a href="#welcome">Welcome</a></li>
-                    <li> @Html.ActionLink("Change Password", "ChangePassword", "Home", null, null) </li>
-                    @{
-                        if (Session["UserTypeID"] != null)
+
+    <header >
+        <img src="~/Content/DashboardTemplate/img/logo.png" alt="">
+    </header>
+    <div class="left-sidebar">
+        <div class="logo">
+            <a href="#welcome">
+               
+            </a>
+        </div>
+
+        <div id="navbar">
+            <ul id="nav navbar-nav">
+                <li class="current"><a href="#welcome">Welcome</a></li>
+                <li> @Html.ActionLink("Change Password", "ChangePassword", "Home", null, null) </li>
+                @{
+                    if (Session["UserTypeID"] != null)
+                    {
+                        var usertype = Convert.ToString(Session["UserTypeID"]);
+                        int value = Convert.ToInt32(usertype.Trim());
+                        if (value == 1)
                         {
-                            var usertype = Convert.ToString(Session["UserTypeID"]);
-                            int value = Convert.ToInt32(usertype.Trim());
-                            if (value == 1)
-                            {
-                                <li> @Html.ActionLink("Account Type", "Index", "AccountTypeTables", null, null) </li>
-                                <li> @Html.ActionLink("All User", "Index", "UserTables", null, null) </li>
-                                <li> @Html.ActionLink("Pending(Lab) Request", "Index", "UserTables", null, null) </li>
-                                <li> @Html.ActionLink("Pending(Doctor) Request", "Index", "UserTables", null, null) </li>
-                                <li> @Html.ActionLink("All Doctor's", "GetAllDoctors", "PatientAppointment", null, null) </li>
-                                <li> @Html.ActionLink("All Lab's", "GetAllLabs", "PatientAppointment", null, null) </li>
-                                <li> @Html.ActionLink("All Patient's", "Index", "UserTables", null, null) </li>
-                            }
-                            if (value == 3)
-                            {
-                                //Lab User Access
+                            <li> @Html.ActionLink("Account Type", "Index", "AccountTypeTables", null, null) </li>
+                            <li> @Html.ActionLink("All User", "Index", "UserTables", null, null) </li>
+                            <li> @Html.ActionLink("Pending(Lab) Request", "Index", "UserTables", null, null) </li>
+                            <li> @Html.ActionLink("Pending(Doctor) Request", "Index", "UserTables", null, null) </li>
+                            <li> @Html.ActionLink("All Doctor's", "GetAllDoctors", "PatientAppointment", null, null) </li>
+                            <li> @Html.ActionLink("All Lab's", "GetAllLabs", "PatientAppointment", null, null) </li>
+                            <li> @Html.ActionLink("All Patient's", "Index", "UserTables", null, null) </li>
+                        }
+                        if (value == 3)
+                        {
+                            //Lab User Access
 
-                                <li> @Html.ActionLink("Time Slot", "Index", "LabTimeSlotTables", null, null) </li>
-                                <li> @Html.ActionLink("All Lab Test", "AllLabTest", "Lab", null, null) </li>
-                                <li> @Html.ActionLink("Add Test", "AddTest", "Lab", null, null) </li>
-                                <li> @Html.ActionLink("Current Appointment", "CurrentAppointment", "LabApprove", null, null) </li>
-                                <li> @Html.ActionLink("Pending Appointment", "PendingAppointment", "LabApprove", null, null) </li>
-                                
-                                <li> @Html.ActionLink("Complete Appointment", "CompleteAppointment", "LabApprove", null, null) </li>
-                                <li> @Html.ActionLink("All Appointment", "AllAppointment", "LabApprove", null, null) </li>
-                                <li> @Html.ActionLink("Appointment Report", "AppointmentReport", "LabApprove", null, null) </li>
-                            }
-                            else if (value == 2)
-                            {
-                                //Doctor User Access
+                            <li> @Html.ActionLink("Time Slot", "Index", "LabTimeSlotTables", null, null) </li>
+                            <li> @Html.ActionLink("All Lab Test", "AllLabTest", "Lab", null, null) </li>
+                            <li> @Html.ActionLink("Add Test", "AddTest", "Lab", null, null) </li>
+                            <li> @Html.ActionLink("Current Appointment", "CurrentAppointment", "LabApprove", null, null) </li>
+                            <li> @Html.ActionLink("Pending Appointment", "PendingAppointment", "LabApprove", null, null) </li>
 
-                                <li> @Html.ActionLink("Time Slot", "Index", "DoctorTimeSlotTables", null, null) </li>
-                                <li> @Html.ActionLink("Current Appointment", "CurrentAppointment", "DoctorApprove", null, null) </li>
-                                <li> @Html.ActionLink("Pending Appointment", "PendingAppointment", "DoctorApprove", null, null) </li>
-                                <li> @Html.ActionLink("Complete Appointment", "CompleteAppointment", "DoctorApprove", null, null) </li>
-                                <li> @Html.ActionLink("All Appointment", "AllAppointment", "DoctorApprove", null, null) </li>
-                                <li> @Html.ActionLink("Appointment Report", "AppointmentReport", "DoctorApprove", null, null) </li>
-                            }
+                            <li> @Html.ActionLink("Complete Appointment", "CompleteAppointment", "LabApprove", null, null) </li>
+                            <li> @Html.ActionLink("All Appointment", "AllAppointment", "LabApprove", null, null) </li>
+                            <li> @Html.ActionLink("Appointment Report", "AppointmentReport", "LabApprove", null, null) </li>
+                        }
+                        else if (value == 2)
+                        {
+                            //Doctor User Access
 
-                            else if (value == 4)
-                            {
-                                //Patient User Access
+                            <li> @Html.ActionLink("Time Slot", "Index", "DoctorTimeSlotTables", null, null) </li>
+                            <li> @Html.ActionLink("Current Appointment", "CurrentAppointment", "DoctorApprove", null, null) </li>
+                            <li> @Html.ActionLink("Pending Appointment", "PendingAppointment", "DoctorApprove", null, null) </li>
+                            <li> @Html.ActionLink("Complete Appointment", "CompleteAppointment", "DoctorApprove", null, null) </li>
+                            <li> @Html.ActionLink("All Appointment", "AllAppointment", "DoctorApprove", null, null) </li>
+                            <li> @Html.ActionLink("Appointment Report", "AppointmentReport", "DoctorApprove", null, null) </li>
+                        }
+
+                        else if (value == 4)
+                        {
+                            //Patient User Access
 
 
-                                <li> @Html.ActionLink("All Labs", "GetAllLabs", "PatientAppointment", null, null) </li>
-                                <li> @Html.ActionLink("All Doctors", "GetAllDoctors", "PatientAppointment", null, null) </li>
+                            <li> @Html.ActionLink("All Labs", "GetAllLabs", "PatientAppointment", null, null)  <br /></li>
+                            <li> @Html.ActionLink("All Doctors", "GetAllDoctors", "PatientAppointment", null, null) </li>
 
 
-                                <li> @Html.ActionLink("Pending(Lab) Appointment", "PendingAppointment", "LabAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Current(Lab) Appointment", "CurrentAppointment", "LabAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Cancel(Lab) Appointment", "CancleAppointment", "LabAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Complete(Lab) Appointment", "CompleteAppointment", "LabAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("All(Lab)Appointment", "AllAppointment", "LabAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Appointment(Lab)Report", "AppointmentReport", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Pending(Lab) Appointment", "PendingAppointment", "LabAppointmentStatus", null, null)  </li>
+                          
+                            <li> @Html.ActionLink("Current(Lab) Appointment", "CurrentAppointment", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Cancel(Lab) Appointment", "CancleAppointment", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Complete(Lab) Appointment", "CompleteAppointment", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("All(Lab)Appointment", "AllAppointment", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Appointment(Lab)Report", "AppointmentReport", "LabAppointmentStatus", null, null) </li>
 
 
-                                <li> @Html.ActionLink("All(Doctor)  Appointment", "AllAppointment", "DoctorAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Pending(Doctor) Appointment", "PendingAppointment", "DoctorAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Current(Doctor)  Appointment", "CurrentAppointment", "DoctorAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Complete(Doctor)  Appointment", "CompleteAppointment", "DoctorAppointmentStatus", null, null) </li>
-                                <li> @Html.ActionLink("Cancel(Doctor)  Appointment", "CancleAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("All(Doctor)  Appointment", "AllAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Pending(Doctor) Appointment", "PendingAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Current(Doctor)  Appointment", "CurrentAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Complete(Doctor)  Appointment", "CompleteAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Cancel(Doctor)  Appointment", "CancleAppointment", "DoctorAppointmentStatus", null, null) </li>
 
 
-                                <li> @Html.ActionLink("Appointment(Doctor)  Report", "AppointmentReport", "DoctorAppointmentStatus", null, null) </li>
-                            }
-
+                            <li> @Html.ActionLink("Appointment(Doctor)  Report", "AppointmentReport", "DoctorAppointmentStatus", null, null) </li>
                         }
 
                     }
-                    <li> @Html.ActionLink("Log Out", "LogoutUser", "Home", null, null) </li>
+
+                }
+                <li> @Html.ActionLink("Log Out", "LogoutUser", "Home", null, null) </li>
 
 
 
-                </ul>
-            </div>
+            </ul>
+        </div>
 
-       </div>
-    
-    
+    </div>
+
+
     <div id="main-wrapper">
         <div class="main-content">
             <section id="welcome">
@@ -141,12 +154,10 @@
     <script type="text/javascript" src="~/Content/DashboardTemplate/syntax-highlighter/scripts/shBrushCss.js"></script>
     <script type="text/javascript" src="~/Content/DashboardTemplate/syntax-highlighter/scripts/shBrushJScript.js"></script>
     <script type="text/javascript" src="~/Content/DashboardTemplate/syntax-highlighter/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.all()</script>
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
 
     <script type="text/javascript" src="~/Content/DashboardTemplate/js/custom.js"></script>
-
-
+   
 
 
 </body>
