@@ -4,19 +4,29 @@
     ViewBag.Title = "PendingAppointment";
 }
 
-<h2>Pending Appointment</h2>
+<h4>Pending Appointment</h4>
 
 
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
     <div class=" card-header py-3">
+        <style>
+            h4 {
+                text-align: center;
+            }
+
+            h5 {
+                text-align: center;
+                color: firebrick
+            }
+        </style>
 
         <input type="text" id="searchtype" name="searchtype" class="form-control col-md-3" style="float:right" placeholder="Search Hare" />
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>

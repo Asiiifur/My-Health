@@ -61,7 +61,7 @@ namespace MyHealth.Controllers
             }
 
             var patient = (PatientTable)Session["Patient"];
-            var cancleappointment = db.LabAppointTables.Where(d => d.PatientID == patient.PatientID  &&( d.IsComplete == false || d.IsFeeSubmit == false) && d.AppointDate < DateTime.Now);
+            var cancleappointment = db.LabAppointTables.Where(d => d.PatientID == patient.PatientID  &&  d.IsComplete == false || d.IsFeeSubmit == false) ;
 
             return View(cancleappointment);
         }

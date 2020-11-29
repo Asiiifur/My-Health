@@ -41,9 +41,7 @@
                         <th>
                             Status
                         </th>
-                        <th>
-                            Action
-                        </th>
+                       
                     </tr>
 
                 </thead>
@@ -77,20 +75,20 @@
                             @{
                                 if (item.IsChecked == true && item.IsFeeSubmit == true && item.DoctorComment.Length > 0)
                                 {
-                                    <h4 class="bold" style="color:forestgreen;">Complete</h4>
+                                    <h5 class="bold" style="color:forestgreen;">Complete</h5>
 
                                 }
-                                else if (item.IsChecked == false && item.IsFeeSubmit == true && item.DoctorComment.Length > 0)
+                                else if (item.IsChecked == false && item.IsFeeSubmit == true)
                                 {
-                                    <h4 class="bold" style="color:firebrick;">Cancle</h4>
+                                    <h5 class="bold" style="color:cornflowerblue;">Current</h5>
                                 }
                                 else if (item.IsChecked == false && item.IsFeeSubmit == false && item.DoctorComment.Length == 0)
                                 {
-                                    <h4 class="bold" style="color:darkorange;">Pending</h4>
+                                    <h5 class="bold" style="color:darkorange;">Pending</h5>
                                 }
                                 else if (item.IsChecked == false && item.IsFeeSubmit == false && item.DoctorComment.Length > 0)
                                 {
-                                    <h4 class="bold" style="color:red;">Rejected</h4>
+                                    <h5 class="bold" style="color:red;">Rejected</h5>
                                 }
                             }
 

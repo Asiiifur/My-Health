@@ -12,6 +12,7 @@ namespace MyHealth.Controllers
     {
         private MyHealthDbEntities db = new MyHealthDbEntities();
 
+       
         public ActionResult Index()
         {
 
@@ -496,6 +497,7 @@ namespace MyHealth.Controllers
 
             return View();
         }
+      
 
         public ActionResult Contact()
         {

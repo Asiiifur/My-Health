@@ -1,0 +1,137 @@
+﻿@model IEnumerable<DatabaseLayer.PatientTestDetailTable>
+
+@{
+    Layout = null;
+}
+
+
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Print Report</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        h4 {
+            text-align: center;
+            color:blue
+        }
+
+        h5 {
+            text-align: center;
+        }
+        body {
+            border-style: solid;
+        }
+    </style>
+</head>
+
+ <body>
+
+         <div class="form-group">
+
+ 
+             <div>
+
+                 <h4 >Patient Report</h4>
+             </div>
+             <br />
+             <br />
+             <table class="table table-bordered">
+
+                 <tr>
+                     <td>
+                         <h5>Test Name</h5>
+                     </td>
+                     <td>
+                         <h5>Lab Name</h5>
+                     </td>
+                     <td>
+                         <h5>Patient Name</h5>
+                     </td>
+                     <td>
+                         <h5>Appointment Id No</h5>
+                     </td>
+                     <td>
+
+                         <h5>Lab Photo</h5>
+                     <td>
+                         <h5>Patient Photo</h5>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td><h5 class="text-black">@ViewBag.TestName</h5></td>
+                     <td> <h5 class="text-black">@ViewBag.Lab</h5></td>
+                     <td> <h5 class="text-black">@ViewBag.Patient</h5></td>
+                     <td><h5 class="text-black">@ViewBag.AppointmentNo</h5></td>
+                     <td align="center">
+                         <img src="@Url.Content(ViewBag.LabLogo)" style="height:50;width:50" />
+                     </td>
+                     <td align="center"><img src="@Url.Content(ViewBag.PatientPhoto)" style="height:50 ;width:50" /></td>
+
+
+                 </tr>
+
+             </table>
+             <br />
+             <h4>Test Result</h4>
+             <br />
+
+
+
+             <div class="card-body">
+                 <div class="table-responsive">
+                     <table class="table table-borderedtable table-bordered table-striped" " id="dataTable" width="100%" cellspascing="0">
+                         <thead class="thead-dark">
+
+                             <tr>
+                                 <th>
+                                     Details
+                                 </th>
+                                 <th>
+                                     Min Value
+                                 </th>
+                                 <th>
+                                     Max Value
+                                 </th>
+                                 <th>
+                                     Patient Value
+                                 </th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             @foreach (var item in Model)
+                              {
+                                 <tr>
+                                     <td>
+                                         @Html.DisplayFor(modelItem => item.LabTestDetailsTable.Name)
+                                     </td>
+                                     <td>
+                                         @Html.DisplayFor(modelItem => item.LabTestDetailsTable.MinValue)
+                                     </td>
+                                     <td>
+                                         @Html.DisplayFor(modelItem => item.LabTestDetailsTable.MaxValue)
+                                     </td>
+                                     <td>
+                                         @Html.DisplayFor(modelItem => item.PatientValue)
+                                     </td>
+
+                                 </tr>
+                              }
+
+
+                         </tbody>
+                     </table>
+                     <a href="javasccript:window.print()" style="float:Right; margin:50px" class="btn btn-primary"><i class="fa fa print"></i>Print Report</a>
+                 </div>
+             </div>
+         </div>
+
+    
+ </body>
+
+</html>
+

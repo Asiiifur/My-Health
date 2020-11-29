@@ -15,7 +15,7 @@ namespace MyHealth.Controllers
 
       
         
-        public ActionResult AllLabTest()
+        public ActionResult LabAllTest()
         {
             if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
             {
@@ -27,8 +27,8 @@ namespace MyHealth.Controllers
             }
             var lab = (LabTable)Session["Lab"];
 
-            var textlist = db.LabTestTables.Where(l => l.LabID == lab.LabID).ToString();
-            return View(textlist);
+            var tlist = db.LabTestTables.Where(l => l.LabID == lab.LabID).ToList();
+            return View(tlist);
         }
         public ActionResult AddTest()
         {
@@ -37,13 +37,6 @@ namespace MyHealth.Controllers
         [HttpPost]
         public ActionResult AddTest(LabTestTable test)
         {
-            if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
-            {
-                return RedirectToAction("Login", "Home");
-            }
-
-
-
             if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
             {
                 return RedirectToAction("Login", "Home");
@@ -139,17 +132,12 @@ namespace MyHealth.Controllers
             }
 
             var labtest = db.LabTestTables.Find(id);
+
             return View(labtest);
         }
         [HttpPost]
         public ActionResult EditTest(LabTestTable test)
         {
-
-            if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
-            {
-                return RedirectToAction("Login", "Home");
-            }
-
 
             if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
             {

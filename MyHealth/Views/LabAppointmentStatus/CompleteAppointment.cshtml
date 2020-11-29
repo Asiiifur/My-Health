@@ -4,10 +4,14 @@
     ViewBag.Title = "Lab Appointment";
 }
 
-<h2>Complete Appointment</h2>
+<h4>Complete Appointment</h4>
 
 
-
+<style>
+    h4 {
+        text-align: center;
+    }
+</style>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
     <div class=" card-header py-3">
@@ -16,7 +20,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>
@@ -50,38 +54,36 @@
                 <tbody id="searchvalue">
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LabTable.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LabTestTable.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AppointDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LabTimeSlotTable.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PatientTable.Name)
-                        </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LabTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LabTestTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LabTimeSlotTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PatientTable.Name)
+                            </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TransectionNo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TransectionNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
 
 
-                        <td>
-                            <h4 class="bold" style="color:dodgerblue;">Complete</h4>
-                        </td>
-                        <td>
-                            @Html.ActionLink("Print Report", "PrintReport", new { id = item.LabTestID }, new { @class = "btn btn-info" })
-                        </td>
-                    </tr>
+                            <td>
+                                <h4 class="bold" style="color:dodgerblue;">Complete</h4>
+                            </td>
+
+                        </tr>
                     }
 
                 </tbody>

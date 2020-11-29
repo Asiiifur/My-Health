@@ -1,13 +1,17 @@
 ﻿@model IEnumerable<DatabaseLayer.LabAppointTable>
 
 @{
-    ViewBag.Title = "Lab Appointment";
+    ViewBag.Title = "Cancle";
 }
 
-<h2>Incomplete/Cancle Appointment</h2>
+<h4>Incomplete/Cancle Appointment</h4>
 
 
-
+<style>
+    h4 {
+        text-align: center;
+    }
+</style>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
     <div class=" card-header py-3">
@@ -16,7 +20,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>
@@ -43,7 +47,7 @@
                             Reason
                         </th>
                         <th>
-                           Status
+                            Status
                         </th>
                     </tr>
                 </thead>
@@ -76,7 +80,17 @@
 
 
                             <td>
-                                <h4 class="bold" style="color:darkorange;">Cancle</h4>
+                                @{
+                                    if (item.IsFeeSubmit == false)
+                                    {
+                                        <h4 class="bold" style="color:red;">Reject</h4>
+                                    }
+                                    else if (item.IsFeeSubmit == false)
+                                    {
+                                        <h4 class="bold" style="color:red;">Cancle</h4>
+                                    }
+                                }
+
                             </td>
                         </tr>
                     }

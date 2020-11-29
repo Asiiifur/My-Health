@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="~/Content/DashboardTemplate/css/normalize.min.css">
     <!-- Main CSS-->
     <link rel="stylesheet" href="~/Content/DashboardTemplate/css/main.css">
+    <link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 
     <link href="~/Content/Template/css/bootstrap.css" rel="stylesheet" />
     <meta name="author" content="Nile-Theme">
@@ -29,26 +30,36 @@
     <meta name="keywords" content="directory, doctor, doctor directory, Health directory, listing, map, medical, medical directory, professional directory, reservation, reviews">
     <meta name="description" content="Health Care & Medical Services Directory">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
 
+    <style>
+        #topFixedNavbar {
+            overflow-y: scroll !important;
+            max-height: 500px !important;
+        }
+    </style>
 
+    
+    
 </head>
 <body id="welcome">
 
     <header >
         <img src="~/Content/DashboardTemplate/img/logo.png" alt="">
     </header>
-    <div class="left-sidebar">
-        <div class="logo">
-            <a href="#welcome">
-               
-            </a>
+    <aside class="left-sidebar">
+        <div >
+           <br />
+            <br />
         </div>
 
-        <div id="navbar">
+        <nav  class="left-nav" id="topFixedNavbar">
             <ul id="nav navbar-nav">
+
                 <li class="current"><a href="#welcome">Welcome</a></li>
+
                 <li> @Html.ActionLink("Change Password", "ChangePassword", "Home", null, null) </li>
+                <hr class="border-white opacity-3 margin-tb-10px">
+
                 @{
                     if (Session["UserTypeID"] != null)
                     {
@@ -58,19 +69,18 @@
                         {
                             <li> @Html.ActionLink("Account Type", "Index", "AccountTypeTables", null, null) </li>
                             <li> @Html.ActionLink("All User", "Index", "UserTables", null, null) </li>
-                            <li> @Html.ActionLink("Pending(Lab) Request", "Index", "UserTables", null, null) </li>
-                            <li> @Html.ActionLink("Pending(Doctor) Request", "Index", "UserTables", null, null) </li>
-                            <li> @Html.ActionLink("All Doctor's", "GetAllDoctors", "PatientAppointment", null, null) </li>
-                            <li> @Html.ActionLink("All Lab's", "GetAllLabs", "PatientAppointment", null, null) </li>
-                            <li> @Html.ActionLink("All Patient's", "Index", "UserTables", null, null) </li>
+                            <li> @Html.ActionLink("All Doctor's", "AllDoctor", "Admin", null, null) </li>
+                            <li> @Html.ActionLink("All Lab's", "AllLab", "Admin", null, null) </li>
+                            <li> @Html.ActionLink("All Patient's", "AllPatient", "Admin", null, null) </li>
                         }
                         if (value == 3)
                         {
                             //Lab User Access
 
                             <li> @Html.ActionLink("Time Slot", "Index", "LabTimeSlotTables", null, null) </li>
-                            <li> @Html.ActionLink("All Lab Test", "AllLabTest", "Lab", null, null) </li>
                             <li> @Html.ActionLink("Add Test", "AddTest", "Lab", null, null) </li>
+                            <li> @Html.ActionLink("All Lab Test", "LabAllTest", "Lab", null, null) </li>
+
                             <li> @Html.ActionLink("Current Appointment", "CurrentAppointment", "LabApprove", null, null) </li>
                             <li> @Html.ActionLink("Pending Appointment", "PendingAppointment", "LabApprove", null, null) </li>
 
@@ -87,7 +97,10 @@
                             <li> @Html.ActionLink("Pending Appointment", "PendingAppointment", "DoctorApprove", null, null) </li>
                             <li> @Html.ActionLink("Complete Appointment", "CompleteAppointment", "DoctorApprove", null, null) </li>
                             <li> @Html.ActionLink("All Appointment", "AllAppointment", "DoctorApprove", null, null) </li>
-                            <li> @Html.ActionLink("Appointment Report", "AppointmentReport", "DoctorApprove", null, null) </li>
+                            <li> @Html.ActionLink("Doctor Assistant", "DoctorAssistant", "Chat", null, null) </li>
+
+
+
                         }
 
                         else if (value == 4)
@@ -95,47 +108,51 @@
                             //Patient User Access
 
 
-                            <li> @Html.ActionLink("All Labs", "GetAllLabs", "PatientAppointment", null, null)  <br /></li>
+
+                            <li> @Html.ActionLink("All Labs", "GetAllLabs", "PatientAppointment", null, null) </li>
                             <li> @Html.ActionLink("All Doctors", "GetAllDoctors", "PatientAppointment", null, null) </li>
+                            <hr class="border-white opacity-3 margin-tb-10px">
+
+                            <li> @Html.ActionLink("All  Appointment   (Lab)", "AllAppointment", "LabAppointmentStatus", null, null) </li>
+
+                            <li> @Html.ActionLink("Pending Appointment (Lab)", "PendingAppointment", "LabAppointmentStatus", null, null)  </li>
+
+                            <li> @Html.ActionLink("Current Appointment (Lab) ", "CurrentAppointment", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Cancel Appointment  (Lab) ", "CancleAppointment", "LabAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Complete  Appointment (Lab) ", "CompleteAppointment", "LabAppointmentStatus", null, null) </li>
+
+                            <li> @Html.ActionLink("Appointment  Report  (Lab)", "AppointmentReport", "LabApprove", null, null) </li>
+                            <hr class="border-white opacity-3 margin-tb-10px">
+
+                            <li> @Html.ActionLink("All  Appointment (Doctor)", "AllAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Pending Appointment (Doctor)", "PendingAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Current Appointment (Doctor)  ", "CurrentAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Complete Appointment (Doctor)  ", "CompleteAppointment", "DoctorAppointmentStatus", null, null) </li>
+                            <li> @Html.ActionLink("Cancel Appointment (Doctor) ", "CancleAppointment", "DoctorAppointmentStatus", null, null) </li>
 
 
-                            <li> @Html.ActionLink("Pending(Lab) Appointment", "PendingAppointment", "LabAppointmentStatus", null, null)  </li>
                           
-                            <li> @Html.ActionLink("Current(Lab) Appointment", "CurrentAppointment", "LabAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Cancel(Lab) Appointment", "CancleAppointment", "LabAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Complete(Lab) Appointment", "CompleteAppointment", "LabAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("All(Lab)Appointment", "AllAppointment", "LabAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Appointment(Lab)Report", "AppointmentReport", "LabAppointmentStatus", null, null) </li>
-
-
-                            <li> @Html.ActionLink("All(Doctor)  Appointment", "AllAppointment", "DoctorAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Pending(Doctor) Appointment", "PendingAppointment", "DoctorAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Current(Doctor)  Appointment", "CurrentAppointment", "DoctorAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Complete(Doctor)  Appointment", "CompleteAppointment", "DoctorAppointmentStatus", null, null) </li>
-                            <li> @Html.ActionLink("Cancel(Doctor)  Appointment", "CancleAppointment", "DoctorAppointmentStatus", null, null) </li>
-
-
-                            <li> @Html.ActionLink("Appointment(Doctor)  Report", "AppointmentReport", "DoctorAppointmentStatus", null, null) </li>
                         }
 
                     }
+                    <hr class="border-white opacity-3 margin-tb-10px">
 
                 }
                 <li> @Html.ActionLink("Log Out", "LogoutUser", "Home", null, null) </li>
 
-
-
             </ul>
-        </div>
+        </nav>
 
-    </div>
+    </aside>
 
 
     <div id="main-wrapper">
         <div class="main-content">
             <section id="welcome">
                 <div class="content-header">
-                    <h1>My Health</h1>
+                    <marquee behavior="scroll" direction="left"><h3 style="color:red">Welcome to  My Health.</h3></marquee>
+
+
                 </div>
 
                 @RenderBody()

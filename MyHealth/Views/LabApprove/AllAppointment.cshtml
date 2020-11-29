@@ -4,19 +4,29 @@
     ViewBag.Title = "Appointment";
 }
 
-<h2>complete Appointment</h2>
+<h4>All Appointment</h4>
 
 
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
+    <style>
+        h4 {
+            text-align: center;
+        }
+
+        h5 {
+            text-align: center;
+            color: firebrick
+        }
+    </style>
     <div class=" card-header py-3">
 
         <input type="text" id="searchtype" name="searchtype" class="form-control col-md-3" style="float:right" placeholder="Search Hare" />
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>
@@ -74,22 +84,22 @@
                                 @{
                                     if (item.IsComplete == true && item.IsFeeSubmit == true)
                                     {
-                                        <h4 class="bold" style="color:forestgreen;">Complete</h4>
+                                        <h5 class="bold" style="color:forestgreen;">Complete</h5>
 
                                     }
                                     else if (item.IsComplete == false && item.IsFeeSubmit == true && item.AppointDate < DateTime.Now)
                                     {
-                                        <h4 class="bold" style="color:firebrick;">Cancle</h4>
+                                        <h5 class="bold" style="color:cornflowerblue;">Current</h5>
                                     }
                                     else if (item.IsComplete == false && item.IsFeeSubmit == false && item.AppointDate >= DateTime.Now)
                                     {
-                                        <h4 class="bold" style="color:darkorange;">Pending</h4>
+                                        <h5 class="bold" style="color:darkorange;">Pending</h5>
                                     }
                                     else if (item.IsComplete == false && item.IsFeeSubmit == false && item.AppointDate < DateTime.Now)
                                     {
 
 
-                                        <h4 class="bold" style="color:red;">Rejected</h4>
+                                        <h5 class="bold" style="color:red;">Rejected</h5>
                                     }
                                 }
 

@@ -10,7 +10,7 @@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
     <div class=" card-header py-3">
-        @Html.ActionLink("New Time Slot", "Create", "LabTimeSlotTables", new { @style = "float:left", @class = "btn btn-primary" })
+      
         <input type="text" id="searchtype" name="searchtype" class="form-control col-md-3" style="float:right" placeholder="Search Hare" />
     </div>
     <div class="card-body">
@@ -42,7 +42,7 @@
                                 </td>
 
                                 <td>
-                                    @Html.ActionLink("Select", "LabAppointment", new { id = item.LabTestID }, new { @class = "btn btn-circle success" })
+                                    @Html.ActionLink("Select", "LabAppointment", new { id = item.LabTestID }, new { @class = "btn btn-success" })
                                 </td>
                             </tr>
                         }

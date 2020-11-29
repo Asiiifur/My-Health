@@ -29,7 +29,7 @@
 
 </head>
 <body>
-
+    <img src="~/Content/DashboardTemplate/img/logo.png" alt="">
     <div class="container body-content">
         <section class="appointment-area">
             <div class="container">
@@ -44,7 +44,8 @@
                                 @Html.AntiForgeryToken()
 
                                 <div class="form-horizontal">
-                                    <h4>Patient Profile</h4>
+                                    <marquee behavior="scroll" direction="left"><h3 style="color:cornflowerblue">Patient Profile</h3></marquee>
+
                                     <hr />
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -104,16 +105,16 @@
                                             @Html.ActionLink("Back", "Login", "Home", null, new { @class = "genric-btn default" })
                                         </div>
                                     </div>
-                                   
+
 
                                 </div>
                             }
-                            
-                            </div>
-                        
+
+                        </div>
+
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
     </div>
 

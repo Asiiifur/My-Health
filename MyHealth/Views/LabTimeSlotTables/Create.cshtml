@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
 
 @using (Html.BeginForm()) 
 {
@@ -12,6 +12,11 @@
     
 <div class="form-horizontal">
     <h4>New Time Slot</h4>
+    <style>
+        h4 {
+            text-align: center;
+        }
+    </style>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <h3 class="text-danger">@ViewBag.Message</h3>
@@ -23,14 +28,14 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.FromTime,"From Time", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.FromTime, "From Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.FromTime, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.FromTime, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.ToTime,"To Time", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ToTime, "To Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ToTime, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ToTime, "", new { @class = "text-danger" })
@@ -40,7 +45,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.IsActive,"Status", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.IsActive, "Status", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.IsActive)
@@ -52,7 +57,7 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-success" />
-            @Html.ActionLink("Back ", "Index",null, new { @class = "btn-btn primary" })
+            @Html.ActionLink("Back ", "Index", null, new { @class = "btn btn-primary" })
         </div>
     </div>
 </div>

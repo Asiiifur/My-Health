@@ -4,10 +4,14 @@
     ViewBag.Title = "Lab Appointment";
 }
 
-<h2>ALL Appointment</h2>
+<h4>ALL Appointment</h4>
 
 
-
+<style>
+    h4 {
+        text-align: center;
+    }
+</style>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
     <div class=" card-header py-3">
@@ -16,7 +20,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>
@@ -77,30 +81,30 @@
 
                             <td>
                                 @{
-                                    if (item.IsComplete == true && item.IsFeeSubmit == true )
+                                    if (item.IsComplete == true && item.IsFeeSubmit == true)
                                     {
                                         <h4 class="bold" style="color:forestgreen;">Complete</h4>
 
                                     }
                                     else if (item.IsComplete == false && item.IsFeeSubmit == true && item.AppointDate < DateTime.Now)
                                     {
-                                        <h4 class="bold" style="color:firebrick;">Cancle</h4>
+                                      <h4 class="bold" style="color:cornflowerblue;">Accepted</h4>
                                     }
-                                    else if (item.IsComplete == false && item.IsFeeSubmit == false &&  item.AppointDate >= DateTime.Now)
+                                    else if (item.IsComplete == false && item.IsFeeSubmit == false && item.AppointDate >= DateTime.Now)
                                     {
                                         <h4 class="bold" style="color:darkorange;">Pending</h4>
                                     }
                                     else if (item.IsComplete == false && item.IsFeeSubmit == false && item.AppointDate < DateTime.Now)
                                     {
 
-                                    
+
                                         <h4 class="bold" style="color:red;">Rejected</h4>
                                     }
                                 }
                             </td>
-                           
+
                         </tr>
-                                    }
+                    }
 
                 </tbody>
             </table>

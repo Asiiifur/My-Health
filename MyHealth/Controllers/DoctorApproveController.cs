@@ -37,6 +37,7 @@ namespace MyHealth.Controllers
             return View(pendingappointment);
 
         }
+
         public ActionResult AllAppointment()
         {
             if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
@@ -50,6 +51,7 @@ namespace MyHealth.Controllers
             return View(pendingappointment);
 
         }
+       
 
         public ActionResult ChangeStatus(int? id)
         {

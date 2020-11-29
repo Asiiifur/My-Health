@@ -6,11 +6,16 @@
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
+        <style>
+            h4 {
+                text-align: center;
+            }
+        </style>
         <h4>New Test</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -32,11 +37,10 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="genric-btn primary" />
-                @Html.ActionLink("All Test", "LabTest", "Lab", new { @class = "btn btn-info"})
+                <input type="submit" value="Save" class="btn btn-success" />
+                @Html.ActionLink("All Lab Test", "LabAllTest", "Lab", new { @class = "btn btn-info" })
+            </div>
         </div>
     </div>
-        </div>
-}
 
-   
+}

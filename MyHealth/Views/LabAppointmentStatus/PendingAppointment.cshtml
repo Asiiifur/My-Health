@@ -4,10 +4,14 @@
     ViewBag.Title = "Lab Appointment";
 }
 
-<h2>Pending Appointment</h2>
+<h4>Pending Lab Appointment</h4>
 
 
-
+<style>
+    h4 {
+        text-align: center;
+    }
+</style>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <div class="card shadow mb-4">
     <div class=" card-header py-3">
@@ -16,14 +20,14 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>
-                          Lab
+                            Lab
                         </th>
                         <th>
-                           Test
+                            Test
                         </th>
                         <th>
                             Date
@@ -37,45 +41,48 @@
                         </th>
 
                         <th>
-                           Transection No
+                            Transection No
                         </th>
                         <th>
-                          Reason
+                            Reason
+                        </th>
+                        <th>
+                          Status
                         </th>
                     </tr>
                 </thead>
                 <tbody id="searchvalue">
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LabTable.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LabTestTable.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AppointDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LabTimeSlotTable.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PatientTable.Name)
-                        </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LabTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LabTestTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LabTimeSlotTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PatientTable.Name)
+                            </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TransectionNo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TransectionNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
 
 
-                        <td>
-                            <h4 class="bold" style="color:dodgerblue;">Pending</h4>
-                        </td>
-                    </tr>
+                            <td>
+                                <h4 class="bold" style="color:dodgerblue;">Pending</h4>
+                            </td>
+                        </tr>
                     }
 
                 </tbody>

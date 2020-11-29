@@ -1,0 +1,210 @@
+﻿@model DatabaseLayer.LabTable
+
+@{
+    ViewBag.Title = "LabProfile";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800%7CPoppins:300i,300,400,700,400i,500%7CDancing+Script:700%7CDancing+Script:700" rel="stylesheet">
+    <!-- animate -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/animate.css" />
+    <!-- owl Carousel assets -->
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/bootstrap.min.css">
+    <!-- hover anmation -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/hover-min.css">
+    <!-- flag icon -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/flag-icon.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/style.css">
+    <!-- colors -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/colors/color-1.css">
+    <!-- elegant icon -->
+    <link rel="stylesheet" href="~/Content/MainTemplete/assets/css/elegant_icon.css">
+
+    <!-- jquery library  -->
+    <script src="~/Content/MainTemplete/assets/js/jquery-3.2.1.min.js"></script>
+    <!-- fontawesome  -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/ProfileTemplete/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/ProfileTemplete/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/ProfileTemplete/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/ProfileTemplete/assets/css/responsive.css">
+</head>
+
+
+<body>
+
+    <div class="wrapper">
+
+
+        <section class="pager-section">
+            <div class="container">
+                <div class="pager-content text-center">
+                    <h2>@Html.DisplayFor(model => model.Name)</h2>
+
+                    <h3> Address : @Html.DisplayFor(model => model.PermanentAddress)</h3>
+
+
+
+                </div><!--pager-content end-->
+
+            </div>
+        </section><!--pager-section end-->
+
+        <section class="page-content">
+            <div class="container">
+                <div class="teacher-single-page">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="teacher-coly">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Photo))
+                                    {
+                                        <img src="@Url.Content(Model.Photo)" alt="Image" style="width:371px; height:555px;max-width:100%;height:auto;" />
+                                    }
+                                }
+
+                            </div><!--teacher-coly end-->
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="teacher-content">
+                                <h3>Doctor Details :</h3>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <div class="rol-z ">
+
+                                            <div class="rol-info">
+                                                <h3>Phone No</h3>
+                                                @Html.DisplayFor(model => model.PhoneNo)
+                                            </div>
+                                        </div><!--rol-z end-->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <div class="rol-z">
+
+                                            <div class="rol-info">
+                                                <h3> Contact No</h3>
+                                                @Html.DisplayFor(model => model.ContactNo)
+                                            </div>
+                                        </div><!--rol-z end-->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <div class="rol-z">
+
+                                            <div class="rol-info">
+                                                <h3>Email</h3>
+                                                @Html.DisplayFor(model => model.EmailAddress)
+                                            </div>
+                                        </div><!--rol-z end-->
+                                    </div>
+
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <div class="rol-z ">
+                                            <img src="assets/img/ro3.png" alt="">
+                                            <div class="rol-info">
+                                                <h3>Permanent Address</h3>
+                                                @Html.DisplayFor(model => model.PermanentAddress)
+                                            </div>
+                                        </div><!--rol-z end-->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <div class="rol-z">
+                                            <img src="assets/img/ro1.png" alt="">
+                                            <div class="rol-info">
+                                                <h3>About Lab</h3>
+                                                @Html.DisplayFor(model => model.AboutLab)
+                                            </div>
+                                        </div><!--rol-z end-->
+                                    </div>
+                                </div>
+                                <br />
+
+
+                                <h3>Appointment :</h3>
+
+                                <ul class="tech-detils">
+                                    <li>
+                                        <h3> Account Type :</h3>
+                                        <span> @Html.DisplayFor(model => model.AccountTypeTable.Name) </span>
+                                    </li>
+                                    <li>
+                                        <h3>Note :</h3>
+                                        <br />
+                                        <span> Before Appointment  Must be <br />submit 10%  Appointment Fee ,<br /> Using This Account No :  "@Html.DisplayFor(model => model.AccountNo)"</span>
+                                    </li>
+
+                                </ul><!--tech-detils end-->
+                                <br />
+
+
+
+                            </div><!--teacher-content end-->
+                        </div>
+                    </div>
+                </div><!--teacher-single-page end-->
+            </div>
+        </section><!--page-content end-->
+        <div class="col-md-7 wow fadeInUp">
+            <h2 class="text-second-color font-weight-300 text-sm-center text-lg-right margin-tb-15px">Search In Map</h2>
+        </div>
+        <iframe width="995" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Dhaka+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://embedmaps.org/'>google maps embed</a>
+        <script type='text/javascript' src='https://maps-generator.com/google-maps-authorization/script.js?id=962b4f40517acdbbab52979619fcc705efbd79db'></script>
+        <footer class="padding-tb-20px background-main-color wow fadeInUp">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="margin-0px text-white opacity-7 sm-mb-15px">
+                            <script>document.write(new Date().getFullYear());</script>   All rights reserved |  AR <i class="fa fa-heart" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="social-icon style-2 float-lg-right">
+                            <li class="list-inline-item"><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li class="list-inline-item"><a class="linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a class="google" href="#"><i class="fab fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a class="rss" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="~/Content/ProfileTemplete/assets/js/jquery.js"></script>
+    <script src="~/Content/ProfileTemplete/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/ProfileTemplete/assets/js/isotope.js"></script>
+    <script src="~/Content/ProfileTemplete/assets/js/html5lightbox.js"></script>
+    <script src="~/Content/ProfileTemplete/assets/js/slick.min.js"></script>
+    <script src="~/Content/ProfileTemplete/assets/js/tweenMax.js"></script>
+    <script src="~/Content/ProfileTemplete/assets/js/scripts.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/sticky-sidebar.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/YouTubePopUp.jquery.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/owl.carousel.min.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/imagesloaded.min.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/wow.min.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/custom.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/popper.min.js"></script>
+    <script src="~/Content/MainTemplete/assets/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
+

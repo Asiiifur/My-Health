@@ -1,4 +1,4 @@
-﻿using DatabaseLayer;
+﻿ using DatabaseLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +34,7 @@ namespace MyHealth.Controllers
             var lablist = db.LabTables.Where(d => d.UserTable.IsVerified == true);
             return View(lablist);
         }
+       
         public ActionResult DoctorAppointment(int? id)
         {
 
@@ -72,7 +73,8 @@ namespace MyHealth.Controllers
                     {
                         db.DoctorAppointTables.Add(appointment);
                         db.SaveChanges();
-                        return RedirectToAction("DoctorPendingAppointment");
+                        ViewBag.Message = "Appointment Submited Success ";
+
 
                     }
                     else
@@ -100,7 +102,16 @@ namespace MyHealth.Controllers
             return View(doc);
         }
 
+        public ActionResult LabProfile(int? id)
+        {
 
+            if (string.IsNullOrEmpty(Convert.ToString(Session["UserName"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            var lab = db.LabTables.Find(id);
+            return View(lab);
+        }
         public ActionResult LabTests(int? id)
         {
 

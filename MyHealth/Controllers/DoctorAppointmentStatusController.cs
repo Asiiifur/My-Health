@@ -36,7 +36,7 @@ namespace MyHealth.Controllers
             }
 
             var patient = (PatientTable)Session["Patient"];
-            var currentappointment = db.DoctorAppointTables.Where(d => d.PatientID == patient.PatientID && d.IsChecked == false && d.IsFeeSubmit == true && d.DoctorComment.Trim().Length == 0);
+            var currentappointment = db.DoctorAppointTables.Where(d => d.PatientID == patient.PatientID && d.IsChecked == false && d.IsFeeSubmit == true );
 
 
             return View(currentappointment);
@@ -64,7 +64,7 @@ namespace MyHealth.Controllers
             }
 
             var patient = (PatientTable)Session["Patient"];
-            var cancleappointment = db.DoctorAppointTables.Where(d => d.PatientID == patient.PatientID &&  d.DoctorComment.Trim().Length > 0);
+            var cancleappointment = db.DoctorAppointTables.Where(d => d.PatientID == patient.PatientID && d.IsChecked == false && d.IsFeeSubmit == true &&  d.DoctorComment.Trim().Length > 0);
 
 
             return View(cancleappointment);

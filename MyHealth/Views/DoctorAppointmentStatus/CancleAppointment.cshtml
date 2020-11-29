@@ -15,7 +15,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspascing="0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspascing="0">
                 <thead>
                     <tr>
                         <th>
@@ -28,17 +28,15 @@
                             Patient
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.AppointDate)
+                           Appoint Date
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.TransectionNo)
+                           Transection No
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Description)
+                          Description
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.DoctorComment)
-                        </th>
+                       
                         <th>
                             Status
                         </th>
@@ -68,7 +66,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                          c
+                          
 
                             <td>
                                 @{

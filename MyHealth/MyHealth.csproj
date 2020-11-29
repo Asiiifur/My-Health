@@ -51,10 +51,29 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +146,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountTypeTablesController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\DoctorAppointmentStatusController.cs" />
     <Compile Include="Controllers\DoctorApproveController.cs" />
     <Compile Include="Controllers\DoctorTimeSlotTablesController.cs" />
@@ -137,6 +158,7 @@
     <Compile Include="Controllers\LabController.cs" />
     <Compile Include="Controllers\LabTimeSlotTablesController.cs" />
     <Compile Include="Controllers\PatientAppointmentController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\UserTablesController.cs" />
     <Compile Include="Controllers\UserTypeTablesController.cs" />
     <Compile Include="FileHelpers.cs" />
@@ -213,6 +235,11 @@
     <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
     <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <Content Include="Content\LoginTemplate\images\bg-01.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Ambulance\ab1.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Ambulance\ab2.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Ambulance\ab3.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Ambulance\ab4.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Ambulance\ab5.jpg" />
     <Content Include="Content\MainTemplete\assets\img\bg-01.png" />
     <Content Include="Content\LoginTemplate\images\icons\favicon.ico" />
     <Content Include="Content\LoginTemplate\images\icons\map-marker.png" />
@@ -789,6 +816,13 @@
     <Content Include="Content\MainTemplete\assets\img\2.jpg" />
     <Content Include="Content\MainTemplete\assets\img\3.jpg" />
     <Content Include="Content\MainTemplete\assets\img\404.png" />
+    <Content Include="Content\MainTemplete\assets\img\Blood Bank\bb1.png" />
+    <Content Include="Content\MainTemplete\assets\img\Blood Bank\bb2.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Blood Bank\bb3.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Blood Bank\bb4.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\Blood Bank\bb5.png" />
+    <Content Include="Content\MainTemplete\assets\img\Blood Bank\BloodBank.jpg" />
+    <Content Include="Content\MainTemplete\assets\img\BloodBank.jpg" />
     <Content Include="Content\MainTemplete\assets\img\close.png" />
     <Content Include="Content\MainTemplete\assets\img\4.jpg" />
     <Content Include="Content\MainTemplete\assets\img\home-banner.jpg" />
@@ -820,6 +854,148 @@
     <Content Include="Content\MainTemplete\assets\js\sticky-sidebar.js" />
     <Content Include="Content\MainTemplete\assets\js\wow.min.js" />
     <Content Include="Content\MainTemplete\assets\js\YouTubePopUp.jquery.js" />
+    <Content Include="Content\ProfileTemplete\assets\css\all.min.css" />
+    <Content Include="Content\ProfileTemplete\assets\css\animate.css" />
+    <Content Include="Content\ProfileTemplete\assets\css\bootstrap.min.css" />
+    <Content Include="Content\ProfileTemplete\assets\css\font-awesome.min.css" />
+    <Content Include="Content\ProfileTemplete\assets\css\main.css" />
+    <Content Include="Content\ProfileTemplete\assets\css\responsive.css" />
+    <Content Include="Content\ProfileTemplete\assets\css\slick.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\css\animation.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\css\mhfontello-codes.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\css\mhfontello-embedded.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\css\mhfontello-ie7-codes.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\css\mhfontello-ie7.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\css\mhfontello.css" />
+    <Content Include="Content\ProfileTemplete\assets\icons\demo.html" />
+    <Content Include="Content\ProfileTemplete\assets\icons\font\mhfontello.svg" />
+    <Content Include="Content\ProfileTemplete\assets\icons\LICENSE.txt" />
+    <Content Include="Content\ProfileTemplete\assets\icons\README.txt" />
+    <Content Include="Content\ProfileTemplete\assets\img\01_Logo_2x.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\abt-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\abt-element.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\arrow-left.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\arrow-left2.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\arrow-right.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\arrow-right2.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\banner-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\ci1.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\cir3.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\cir4.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\circle.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\circle1.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\circle3.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\circle4.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\circle5.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\element-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\element-bg2.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\elements-bg2.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\elements-bg3.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\elements.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\error-bg.jpg" />
+    <Content Include="Content\ProfileTemplete\assets\img\error-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\favicon.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon1.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon10.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon11.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon12.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon13.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon14.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon15.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon16.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon17.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon18.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon2.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon3.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon4.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon5.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon6.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon7.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon8.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\icon9.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\left.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\lightbox-close.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\link.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\loct.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\logo.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\news-bg.jpg" />
+    <Content Include="Content\ProfileTemplete\assets\img\news-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\pager-bg.jpg" />
+    <Content Include="Content\ProfileTemplete\assets\img\pager-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\play.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\plus.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\preloader.gif" />
+    <Content Include="Content\ProfileTemplete\assets\img\quote.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\right.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\ro1.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\ro2.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\ro3.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\sec-bg.png" />
+    <Content Include="Content\ProfileTemplete\assets\img\shape3.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\bootstrap.min.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\froogaloop2.min.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\html5lightbox.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\isotope.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\jquery.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\scripts.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\html5boxplayer_caption.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\html5boxplayer_fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\html5boxplayer_hd.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\html5boxplayer_playpause.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\html5boxplayer_playvideo.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\html5boxplayer_volume.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-close-fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-close.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-fullscreen-close.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-loading.gif" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-navcontrol.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-navnext.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-navprev.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-next-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-next-fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-next.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-pause-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-pause.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-play-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-play.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-playvideo.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-prev-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-prev-fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\lightbox-prev.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\nav-arrows-next.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\skins\default\nav-arrows-prev.png" />
+    <Content Include="Content\ProfileTemplete\assets\js\slick.min.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\tweenMax.js" />
+    <Content Include="Content\ProfileTemplete\assets\js\wow.min.js" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\html5boxplayer_caption.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\html5boxplayer_fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\html5boxplayer_hd.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\html5boxplayer_playpause.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\html5boxplayer_playvideo.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\html5boxplayer_volume.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-close-fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-close.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-fullscreen-close.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-loading.gif" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-navcontrol.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-navnext.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-navprev.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-next-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-next-fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-next.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-pause-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-pause.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-play-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-play.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-playvideo.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-prev-2.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-prev-fullscreen.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\lightbox-prev.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\nav-arrows-next.png" />
+    <Content Include="Content\ProfileTemplete\assets\skins\default\nav-arrows-prev.png" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-solid-900.svg" />
     <Content Include="Content\Template\css\bootstrap.css" />
     <Content Include="Content\Template\css\breadcrumb.css" />
     <Content Include="Content\Template\css\counter-up\jquery.counterup.js" />
@@ -1136,12 +1312,32 @@
     <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\ProfileTemplete\assets\.DS_Store" />
+    <Content Include="Content\ProfileTemplete\assets\icons\config.json" />
+    <Content Include="Content\ProfileTemplete\assets\icons\font\mhfontello.eot" />
+    <Content Include="Content\ProfileTemplete\assets\icons\font\mhfontello.ttf" />
+    <Content Include="Content\ProfileTemplete\assets\icons\font\mhfontello.woff" />
+    <Content Include="Content\ProfileTemplete\assets\icons\font\mhfontello.woff2" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\ProfileTemplete\assets\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1154,7 +1350,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1187,7 +1385,6 @@
     <Content Include="Views\Lab\AddTest.cshtml" />
     <Content Include="Views\Lab\TestDetails.cshtml" />
     <Content Include="Views\Lab\AddTestDetails.cshtml" />
-    <Content Include="Views\Lab\AllLabTest.cshtml" />
     <Content Include="Views\Lab\EditTest.cshtml" />
     <Content Include="Views\Lab\EditTestDetails.cshtml" />
     <Content Include="Views\LabTimeSlotTables\Create.cshtml" />
@@ -1229,6 +1426,17 @@
     <Content Include="Views\LabApprove\CurrentAppointment.cshtml" />
     <Content Include="Views\LabApprove\AllAppointment.cshtml" />
     <Content Include="Views\LabApprove\ProcessAppointment.cshtml" />
+    <Content Include="Views\Lab\LabAllTest.cshtml" />
+    <Content Include="Views\LabApprove\ViewDetails.cshtml" />
+    <Content Include="Views\PatientAppointment\LabProfile.cshtml" />
+    <Content Include="Views\Admin\AllDoctor.cshtml" />
+    <Content Include="Views\Admin\AllLab.cshtml" />
+    <Content Include="Views\Admin\AllPatient.cshtml" />
+    <Content Include="Views\LabApprove\AppointmentReport.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
+    <Content Include="Views\Chat\DoctorAssistant.cshtml" />
+    <Content Include="Views\Service\BloodBank.cshtml" />
+    <Content Include="Views\Service\Ambulance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
